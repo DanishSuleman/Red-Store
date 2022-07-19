@@ -97,13 +97,13 @@ def contactSubmit(req):
                 fail_silently=False,
                 html_message=email_html
             )
-            return HttpResponse(' <a href="{% url 'Home' %}">Home</a> <h2>Your Message Has Been Sent Successfully, We Will Get Back To You Soon! </h2>')
+            return HttpResponse("<h2>Your Message Has Been Sent Successfully, We Will Get Back To You Soon! </h2> <a href='../'>Go Back</a>")
         else:
             return render(req, 'contact/contact.html', {
                 'contactForm': form
             })  
     else:
-        return HttpResponse('<h2>Method Not Accepted</h2>')
+        return HttpResponse("<h2>Method Not Accepted</h2> <a href='../'>Go Back</a>")
 
 
 # Product Details Page
