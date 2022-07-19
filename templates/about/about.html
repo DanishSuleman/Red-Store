@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>ABOUT US</h4>
+          <h2>OUR STORE</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="best-features about-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Our Background</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="right-image">
+          <img src="/static/images/feature-image.jpg" alt="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="left-content">
+          <h4>Who we are &amp; What we do?</h4>
+          <p>Online shopping allows retailers to offer an easy, fast, often tailor-made experience—which they’ve come to
+            accept as the norm. The result is that physical stores can no longer offer the bare minimum to in-store
+            shoppers.</p>
+          <p>Instead, buyers now need a compelling reason to make the trek to a brick-and-mortar store. Otherwise, those
+            customers can get the job done online in just a few clicks.</p>
+          <ul class="social-icons">
+            <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="team-members">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Our Team Members</h2>
+        </div>
+      </div>
+      {% if all_team_members %}
+      {% for team_member in all_team_members %}
+      <div class="col-md-4">
+        <div class="team-member">
+          <div class="thumb-container">
+            <img src="../media/About/{{ team_member.image }}" alt="">
+            <div class="hover-effect">
+              <div class="hover-content">
+                <ul class="social-icons">
+                  <li><a target="_blank" href="{{team_member.facebook}}"><i class="fa fa-facebook"></i></a></li>
+                  <li><a target="_blank" href="{{team_member.twitter}}"><i class="fa fa-twitter"></i></a></li>
+                  <li><a target="_blank" href="{{team_member.linkedIn}}"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="down-content">
+            <h4>{{team_member.name}}</h4>
+            <span>{{team_member.designation}}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <h2>Team Details will be uploaded soon, thanks for your patience.</h2>
+      {% endif%}
+    </div>
+  </div>
+</div>
+
+
+<div class="services">
+  <div class="container">
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Additional Scripts -->
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/slick.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/accordions.js"></script>
+
+
+
+
+</body>
+
+</html>

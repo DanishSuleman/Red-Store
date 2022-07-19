@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/templatemo-sixteen.css">
+
+</head>
+
+<body>
+
+  <!-- Header Start -->
+  <div class="header">
+    <div class="container">
+      <div class="navbar1">
+        <div class="logo">
+          <a href="">
+            <img src="{% static 'images/logo.png' %}" alt="" width="125px" /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="{% url 'Home' %}">Home</a></li>
+            <li><a href="{% url 'Products' %}">Products</a></li>
+            <li><a href="{% url 'About' %}">About</a></li>
+            <li><a href="{% url 'Contact' %}">Contact</a></li>
+          </ul>
+        </nav>
+        <img src="{% static 'images/menu.png' %}" alt="" class="menu-icon" onclick="menutoggle()" />
+      </div>
+
+    </div>
+  </div>
+  <!-- Header End  -->
+
+
+  {% block content %}
+  {% endblock %}
+
+
+  <!-- Footer Start-->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Download Our App</h3>
+          <p>
+            Download App for Android <br />
+            and ios mobile phone
+          </p>
+          <div class="app-logo">
+            <img src="{% static 'images/play-store.png' %}" alt="" />
+            <img src="{% static 'images/app-store.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="footer-col-2">
+          <img src="{% static 'images/logo-white.png' %}" alt="" />
+          <p>
+            Our purpose is to sustainably make the pleasure and benefits of sports accessible to many.
+          </p>
+        </div>
+
+
+        <div class="footer-col-4">
+          <h3>Follow us</h3>
+          <ul>
+            <a class="ank" href="https://www.facebook.com">
+              <li>Facebook</li>
+            </a>
+            <a class="ank" href="https://www.Instagram.com">
+              <li>Instagram</li>
+            </a>
+            <a class="ank" href="https://www.Youtube.com">
+              <li>Youtube</li>
+            </a>
+            <a class="ank" href="https://www.twitter.com">
+              <li>Twitter</li>
+            </a>
+            <a class="ank" href="https://www.linkedin.com">
+              <li>Linkedin</li>
+            </a>
+
+
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">Copyright 2022 - Red-Store</p>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+  <!-- JS for Toggle menu -->
+  <script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (MenuItems.style.maxHeight == "0px") {
+        MenuItems.style.maxHeight = "200px";
+      } else {
+        MenuItems.style.maxHeight = "0px";
+      }
+    }
+  </script>
+  <script src="../static/js/jquery.js"></script>
+  <script src="../static/js/jquery.validate.min.js"></script>
+  <script src="../static/js/slick.min.js"></script>
+  <script src="../static/js/form_val.js"></script>
+</body>
+
+</html>

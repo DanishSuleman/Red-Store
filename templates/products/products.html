@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="small-container">
+  <h2 class="title extra-padding">All Products</h2>
+  <div class="row">
+    {% if products %}
+
+    {% for product in products%}
+    <div class="col-44 img44">
+      <a href="{% url 'Product Details' product.id %}">
+        <img src="../media/{{ product.featured_image }}" alt="" />
+        <h4>{{product.name}}</h4>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+        <p>${{product.price}}</p>
+    </div>
+    </a>
+    {% endfor %}
+
+    {% else %}
+    <h2>No Products Listed Currently!</h2>
+    {% endif %}
+  </div>
+
+  <div class="page-btn">
+
+    {% if page_obj.has_previous %}
+
+    <a href="?page= {{page_obj.previous_page_number}}"> &#8592;</a>
+
+    {% endif %}
+    {% for page in paginator.page_range %}
+    <a id="{% if page == page_number %}page-btn-active{% endif %}" href="?page={{ page }}">{{page}}</a>
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+
+    <a href="?page= {{page_obj.next_page_number}}"> &#8594;</a>
+
+    {% endif %}
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

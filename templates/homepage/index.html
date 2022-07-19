@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row hero">
+  <div class="container">
+    <div class="row_hero_col_1">
+      <div class="col-2 col-22">
+        <h1>
+          Give your Workout<br />
+          a new Style!
+        </h1>
+        <p>
+          Success isn't always about greatness, it's about consistency. <br>
+          Consistent hard work gains success. Greatness will come.
+        </p>
+        <a href="{% url 'Products' %}" class="btn">Explore Now &#8594;</a>
+      </div>
+      <div class="col-2">
+        <img src="{% static 'images/image1.png' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!----- Featurd Products--------->
+<div class="small-container">
+  <h2 class="title extra-padding">Featured Products</h2>
+  <div class="row">
+    {% if featured_product %}
+    {% for product in featured_product %}
+    <div class="col-44">
+      <a href="{% url 'Product Details' product.id %}">
+        <img src="media/{{ product.featured_image }}" alt="" />
+        <h4>{{ product.name }}</h4>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+        <p>${{ product.price }}</p>
+      </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>No Products Listed Currently!</h2>
+    {% endif %}
+  </div>
+  <h2 class="title">Latest Products</h2>
+  <div class="row">
+    {% if products %}
+    {% for product in products %}
+    <div class="col-44">
+      <a href="{% url 'Product Details' product.id %}">
+        <img src="media/{{ product.featured_image }}" alt="" />
+        <h4>{{ product.name }}</h4>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+        <p>${{ product.price }}</p>
+      </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>No Products Listed Currently!</h2>
+    {% endif %}
+  </div>
+</div>
+
+<!------ Testimonial  ------>
+{% if testimonials %}
+<div class="testimonial">
+  <div class="small-container">
+    <h2 class="title">Testimonials</h2>
+    <div class="row testrow">
+      {% for testimony in testimonials %}
+      <div class="col-3">
+        <i class="fa fa-quote-left"></i>
+        <p>
+          {{ testimony.testimony }}
+        </p>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+        <img src="media/Home/{{ testimony.image }}" alt="" />
+        <h3>{{testimony.name}}</h3>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<!-- Brands -->
+{% if brands %}
+<div class="brands">
+  <div class="small-container">
+    <h2 class="title">Brands Associated</h2>
+    <div class="row brands_row">
+      {% for brand in brands %}
+      <div class="col-55">
+        <img src="media/Home/{{ brand.image }}" alt="" />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
