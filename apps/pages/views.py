@@ -97,7 +97,7 @@ def contactSubmit(req):
                 fail_silently=False,
                 html_message=email_html
             )
-            return HttpResponse(' <h2>Your Message Has Been Sent Successfully, We Will Get Back To You Soon! </h2>')
+            return HttpResponse(' <a href="{% url 'Home' %}">Home</a> <h2>Your Message Has Been Sent Successfully, We Will Get Back To You Soon! </h2>')
         else:
             return render(req, 'contact/contact.html', {
                 'contactForm': form
