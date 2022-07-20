@@ -1,1 +1,1 @@
-web: gunicorn Red-Store.wsgi
+web: gunicorn RedStore.wsgi
