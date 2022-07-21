@@ -71,11 +71,23 @@ WSGI_APPLICATION = 'RedStore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'd8iqpceqf8u4ge',
+       'USER': 'cedfibmttqpggu',
+       'PASSWORD': '5e22670106dab2da8e1afadcc379fa8505197b153ca81dc9ea7191e1e2efdbbd',
+       'HOST': 'ec2-44-206-214-233.compute-1.amazonaws.com',
+       'PORT': '5432'
+   }
 }
 
 
